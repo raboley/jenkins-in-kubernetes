@@ -33,4 +33,5 @@ helm upgrade -f jenkins_values.yaml aks-jenkins-rb stable/jenkins
 printf $(kubectl get secret --namespace default aks-jenkins-rb -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
 
 # see the blue ocean plugin, with errors, fix jenkins_values dependency hell
+helm upgrade -f jenkins_values.yaml aks-jenkins-rb stable/jenkins
 ```
