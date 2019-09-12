@@ -1,3 +1,9 @@
+# Jenkins in Kubernetes
+
+## Installing Jenkins
+
+https://medium.com/@timhberry/deploy-jenkins-to-google-kubernetes-engine-with-helm-60e0a4d7de93
+
 ``` bash
 # create role tiller
 kubectl apply -f tiller-rbac.yaml
@@ -34,4 +40,19 @@ printf $(kubectl get secret --namespace default aks-jenkins-rb -o jsonpath="{.da
 
 # see the blue ocean plugin, with errors, fix jenkins_values dependency hell
 helm upgrade -f jenkins_values.yaml aks-jenkins-rb stable/jenkins
+```
+
+## Setting up a build
+
+https://medium.com/@timhberry/terraform-pipelines-in-jenkins-47267129ff06
+
+Go to the jenkins system and add a terraform container template
+
+Create a service account credentials
+
+## Deleting the jenkins cluster
+
+``` bash
+helm delete aks-jenkins-rb
+
 ```
