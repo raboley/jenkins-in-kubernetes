@@ -19,7 +19,7 @@ helm install --name aks-jenkins-rb stable/jenkins
 
 # get admin password
 printf $(kubectl get secret --namespace default aks-jenkins-rb -o jsonpath="{.data.jenkins-admin-password}" | base64 --decode);echo
-## OWm3cxPU0G
+## 
 
 # Ensure external ip is built
 kubectl get svc --namespace default -w aks-jenkins-rb
@@ -54,5 +54,4 @@ Create a service account credentials
 
 ``` bash
 helm delete aks-jenkins-rb
-
 ```
